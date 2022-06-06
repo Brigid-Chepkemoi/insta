@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap5',
-    'z_gram.apps.ZGramConfig',
+    'instaclone.apps.InstacloneConfig',
     'crispy_forms',
     'cloudinary',
 ]
@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'zoo_gram.wsgi.application'
+WSGI_APPLICATION = 'insta.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
