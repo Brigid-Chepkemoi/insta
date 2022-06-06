@@ -50,3 +50,4 @@ class TestPost(TestCase):
         self.image_test.delete()
         after = UserPost.objects.all()
 
+        return
