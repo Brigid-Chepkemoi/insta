@@ -7,8 +7,8 @@ from django.template.loader import render_to_string
 from django.views.generic import RedirectView
 from cloudinary.forms import cl_init_js_callbacks
 
-from z_gram.forms import RegisterForm, UserPostForm, UpdateUserForm, UpdateUserProfileForm, CommentForm
-from z_gram.models import UserPost, Follow, UserProfile
+from instaclone.forms import RegisterForm, UserPostForm, UpdateUserForm, UpdateUserProfileForm, CommentForm
+from instaclone.models import UserPost, Follow, UserProfile
 
 
 def register(request):
