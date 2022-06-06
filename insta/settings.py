@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-ROOT_URLCONF = 'zoo_gram.urls'
+ROOT_URLCONF = 'insta.urls'
 
 TEMPLATES = [
     {
