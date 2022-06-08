@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class TestProfile(TestCase):
     def setUp(self):
-        self.user = User(username='zoo-test')
+        self.user = User(username='insta-test')
         self.user.save()
 
         self.profile_test = UserProfile(id=13, username='image', profile_picture='default.jpg',
@@ -26,9 +26,9 @@ class TestProfile(TestCase):
 
 class TestPost(TestCase):
     def setUp(self):
-        self.user = User(username='zoo-codes')
+        self.user = User(username='insta-codes')
         self.user.save()
-        self.profile_test = UserProfile(id=3, username='zoo-test', user=self.user)
+        self.profile_test = UserProfile(id=3, username='insta-test', user=self.user)
         # self.profile_test.save()
 
         self.image_test = UserPost(image='user.png', caption='default test', user=self.profile_test)
