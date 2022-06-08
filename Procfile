@@ -1,1 +1,1 @@
-web: gunicorn zoo_gram.wsgi
+web: gunicorn insta.wsgi
