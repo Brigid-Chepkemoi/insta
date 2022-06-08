@@ -9,9 +9,9 @@ import os.path
 from dotenv import load_dotenv
 from pathlib import Path
 
-# import cloudinary
-# import cloudinary.uploader
-# import cloudinary.api
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 import dj_database_url
 import django_on_heroku
 
@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY='django-insecure-eb5545-0yknuwg-14_d1^b0gzre2rnv(smzdzg^nm8j5q0lv0n'
+SECRET_KEY=os.environ.get("SECRET_KEY")
 
 # Application definition
 
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     # 'instaclone.apps.InstacloneConfig',
     'instaclone',
     'crispy_forms',
-    # 'cloudinary',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -85,14 +85,14 @@ if MODE == "dev":
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'insta',
-            'USER': 'james',
-            'PASSWORD':'Brie@1240',
-            'HOST': '127.0.0.1',
-            'PORT': '5432',
+            'NAME': f'{os.environ.get("POSTGRES_DB_NAME")}',
+            'USER': f'{os.environ.get("POSTGRES_USER")}',
+            'PASSWORD': f'{os.environ.get("POSTGRES_PASSWORD")}',
+            'HOST': f'{os.environ.get("POSTGRES_DB_HOST")}',
+            'PORT': f'{os.environ.get("POSTGRES_DB_PORT")}',
         }
     }
-    ALLOWED_HOSTS = ['127.0.0.1']
+    ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS')
 # production
 else:
 
@@ -101,7 +101,7 @@ else:
     }
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS')
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -154,13 +154,13 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 # Configure Django App for Heroku.
-# django_on_heroku.settings(locals())
-#
-# cloudinary.config(
-#     cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
-#     api_key=os.environ.get('CLOUDINARY_API_KEY'),
-#     api_secret=os.environ.get('CLOUDINARY_API_SECRET'),
-# )
+django_on_heroku.settings(locals())
+
+cloudinary.config(
+    cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    api_key=os.environ.get('CLOUDINARY_API_KEY'),
+    api_secret=os.environ.get('CLOUDINARY_API_SECRET'),
+)
 
 
 # Email configurations remember to install python-decouple
