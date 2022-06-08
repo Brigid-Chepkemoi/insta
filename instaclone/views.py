@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
 from django.views.generic import RedirectView
-from cloudinary.forms import cl_init_js_callbacks
+
 
 from instaclone.forms import RegisterForm, UserPostForm, UpdateUserForm, UpdateUserProfileForm, CommentForm
 from instaclone.models import UserPost, Follow, UserProfile

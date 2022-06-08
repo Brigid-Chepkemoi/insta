@@ -1,5 +1,5 @@
 """
-ASGI config for insta project.
+ASGI config for instaclone project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
