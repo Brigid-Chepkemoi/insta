@@ -13,8 +13,7 @@ class UserProfile(models.Model):
     username = models.TextField(max_length=150)
     bio = models.CharField(max_length=400, blank=True, null=True, default="simple bio")
     # profile_picture = models.ImageField(upload_to='profile/', default='profile/user.png')
-    profile_picture = CloudinaryField('image', default="https://res.cloudinary.com/dd5ab8mp3/image/upload/v1634659738"
-                                                      "/images/profile/user.jpg")
+    profile_picture = CloudinaryField('image', default="https://res.cloudinary.com/de7cwzlea/image/upload/v1654724662/o9qs85f1babplv1ke98t.jpg")
     location = models.CharField(max_length=70, blank=True, null=True)
 
     @staticmethod
